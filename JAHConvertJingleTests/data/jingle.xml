@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="example.com" id="someid" version="1.0">
+    <iq id="lx597" type="set" to="62b9da07-aa7f-4aca-b3c6-b2fc33411400@andyet.talky.io/7e715a2d-24ba-481c-962a-953a0d1bd027" from="test45@conference.andyet.talky.io">
+        <jingle xmlns="urn:xmpp:jingle:1" sid="a73sjjvkla37jfea" initiator="test45@conference.andyet.talky.io" action="session-initiate">
+            <content senders="both" creator="initiator" name="audio">
+                <description xmlns="urn:xmpp:jingle:apps:rtp:1" media="audio">
+                    <payload-type id="111" channels="2" name="opus" clockrate="48000">
+                        <parameter name="minptime" value="10" />
+                    </payload-type>
+                    <payload-type id="0" name="PCMU" clockrate="8000" />
+                    <payload-type id="8" name="PCMA" clockrate="8000" />
+                    <payload-type id="103" name="ISAC" clockrate="16000" />
+                    <payload-type id="104" name="ISAC" clockrate="32000" />
+                    <rtp-hdrext xmlns="urn:xmpp:jingle:apps:rtp:rtp-hdrext:0" id="1" uri="urn:ietf:params:rtp-hdrext:ssrc-audio-level" />
+                    <rtp-hdrext xmlns="urn:xmpp:jingle:apps:rtp:rtp-hdrext:0" id="3" uri="http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time" />
+                </description>
+                <transport xmlns="urn:xmpp:jingle:transports:ice-udp:1" ufrag="d7ojr" pwd="5olpqqa2rlsiok8jpfqga4ib5i">
+                    <fingerprint xmlns="urn:xmpp:jingle:apps:dtls:0" hash="sha-1" setup="actpass">CD:16:2F:A5:27:55:35:A8:B2:2D:01:12:61:1D:9B:78:BF:CA:8D:62</fingerprint>
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d05d661088" ip="fe80:0:0:0:be76:4eff:fe05:83d5" component="1" port="10100" foundation="1" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d057c7809f" ip="192.168.6.3" component="1" port="10100" foundation="2" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d06acd73be" ip="2001:4800:7817:104:b1ad:e125:ff05:77d4" component="1" port="10100" foundation="6" generation="0" priority="2113939711" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d05669f5b9" ip="fe80:0:0:0:be76:4eff:fe03:eb8a" component="1" port="10100" foundation="3" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d046837101" ip="fe80:0:0:0:be76:4eff:fe05:77d4" component="1" port="10100" foundation="5" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d05f701cd1" ip="10.208.194.219" component="1" port="10100" foundation="4" generation="0" priority="2113932031" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d039740e4a" ip="23.253.239.176" component="1" port="10100" foundation="7" generation="0" priority="2113932031" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d0725639bd" ip="fe80:0:0:0:be76:4eff:fe05:83d5" component="2" port="10101" foundation="1" generation="0" priority="2130706430" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d07ae8e1ef" ip="192.168.6.3" component="2" port="10101" foundation="2" generation="0" priority="2130706430" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d04f4950f3" ip="2001:4800:7817:104:b1ad:e125:ff05:77d4" component="2" port="10101" foundation="6" generation="0" priority="2113939710" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d05661aa2f" ip="fe80:0:0:0:be76:4eff:fe03:eb8a" component="2" port="10101" foundation="3" generation="0" priority="2113937150" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d025ec1ff7" ip="fe80:0:0:0:be76:4eff:fe05:77d4" component="2" port="10101" foundation="5" generation="0" priority="2113937150" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d03126a494" ip="10.208.194.219" component="2" port="10101" foundation="4" generation="0" priority="2113932030" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b597873b372f41aa87802468d05fff09c1" ip="23.253.239.176" component="2" port="10101" foundation="7" generation="0" priority="2113932030" network="0" />
+                </transport>
+            </content>
+            <content senders="both" creator="initiator" name="video">
+                <description xmlns="urn:xmpp:jingle:apps:rtp:1" media="video">
+                    <payload-type id="100" name="VP8" clockrate="90000">
+                        <rtcp-fb xmlns="urn:xmpp:jingle:apps:rtp:rtcp-fb:0" type="ccm" subtype="fir" />
+                        <rtcp-fb xmlns="urn:xmpp:jingle:apps:rtp:rtcp-fb:0" type="nack" />
+                        <rtcp-fb xmlns="urn:xmpp:jingle:apps:rtp:rtcp-fb:0" type="nack" subtype="pli" />
+                        <rtcp-fb xmlns="urn:xmpp:jingle:apps:rtp:rtcp-fb:0" type="ccm" subtype="fir" />
+                    </payload-type>
+                    <payload-type id="116" name="red" clockrate="90000" />
+                    <rtp-hdrext xmlns="urn:xmpp:jingle:apps:rtp:rtp-hdrext:0" id="2" uri="urn:ietf:params:rtp-hdrext:toffset" />
+                    <rtp-hdrext xmlns="urn:xmpp:jingle:apps:rtp:rtp-hdrext:0" id="3" uri="http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time" />
+                </description>
+                <transport xmlns="urn:xmpp:jingle:transports:ice-udp:1" ufrag="euj6l" pwd="44pb1vccpqnhku44np96fcu6qs">
+                    <fingerprint xmlns="urn:xmpp:jingle:apps:dtls:0" hash="sha-1" setup="actpass">DB:CD:AD:AD:7D:86:1E:62:55:5A:BF:0E:76:7D:E5:75:AE:CE:3C:6F</fingerprint>
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a0382a6c5e" ip="fe80:0:0:0:be76:4eff:fe05:83d5" component="1" port="10102" foundation="1" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a06930ac20" ip="192.168.6.3" component="1" port="10102" foundation="2" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a07a749ed3" ip="2001:4800:7817:104:b1ad:e125:ff05:77d4" component="1" port="10102" foundation="6" generation="0" priority="2113939711" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a07e676d73" ip="fe80:0:0:0:be76:4eff:fe03:eb8a" component="1" port="10102" foundation="3" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a03842d9da" ip="fe80:0:0:0:be76:4eff:fe05:77d4" component="1" port="10102" foundation="5" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a02cec9411" ip="10.208.194.219" component="1" port="10102" foundation="4" generation="0" priority="2113932031" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a05fecff21" ip="23.253.239.176" component="1" port="10102" foundation="7" generation="0" priority="2113932031" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a0406200ba" ip="fe80:0:0:0:be76:4eff:fe05:83d5" component="2" port="10103" foundation="1" generation="0" priority="2130706430" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a0621dd45b" ip="192.168.6.3" component="2" port="10103" foundation="2" generation="0" priority="2130706430" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a01460d4b0" ip="2001:4800:7817:104:b1ad:e125:ff05:77d4" component="2" port="10103" foundation="6" generation="0" priority="2113939710" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a0612b7943" ip="fe80:0:0:0:be76:4eff:fe03:eb8a" component="2" port="10103" foundation="3" generation="0" priority="2113937150" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a06d264f8b" ip="fe80:0:0:0:be76:4eff:fe05:77d4" component="2" port="10103" foundation="5" generation="0" priority="2113937150" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a06e3066a8" ip="10.208.194.219" component="2" port="10103" foundation="4" generation="0" priority="2113932030" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b3616d81d15c673a917d3676a02ba3d81c" ip="23.253.239.176" component="2" port="10103" foundation="7" generation="0" priority="2113932030" network="0" />
+                </transport>
+            </content>
+            <content senders="both" creator="initiator" name="data">
+                <description xmlns="http://talky.io/ns/datachannel" />
+                <transport xmlns="urn:xmpp:jingle:transports:ice-udp:1" ufrag="2qpmi" pwd="ckc4m3i2ugcamap6bj87bau86">
+                    <fingerprint xmlns="urn:xmpp:jingle:apps:dtls:0" hash="sha-1" setup="actpass">3C:3F:A0:53:67:87:51:2F:9C:5B:B0:00:6A:63:C9:82:03:A6:9A:8C</fingerprint>
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb668692650cf55979" ip="fe80:0:0:0:be76:4eff:fe05:83d5" component="1" port="10104" foundation="1" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb6686926503fc51d94" ip="192.168.6.3" component="1" port="10104" foundation="2" generation="0" priority="2130706431" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb66869265026190041" ip="2001:4800:7817:104:b1ad:e125:ff05:77d4" component="1" port="10104" foundation="6" generation="0" priority="2113939711" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb668692650335fbef1" ip="fe80:0:0:0:be76:4eff:fe03:eb8a" component="1" port="10104" foundation="3" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb66869265052f0da90" ip="fe80:0:0:0:be76:4eff:fe05:77d4" component="1" port="10104" foundation="5" generation="0" priority="2113937151" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb668692650429d4e7a" ip="10.208.194.219" component="1" port="10104" foundation="4" generation="0" priority="2113932031" network="0" />
+                    <candidate type="host" protocol="udp" id="ddb995ee88b3359b4cd5a5755e61cbbb668692650658b4dc0" ip="23.253.239.176" component="1" port="10104" foundation="7" generation="0" priority="2113932031" network="0" />
+                    <sctpmap xmlns="urn:xmpp:jingle:transports:dtls-sctp:1" number="5000" streams="1024" protocol="webrtc-datachannel" />
+                </transport>
+            </content>
+        </jingle>
+    </iq>
+</stream:stream>

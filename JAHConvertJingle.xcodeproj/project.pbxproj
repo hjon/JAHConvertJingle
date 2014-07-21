@@ -19,6 +19,7 @@
 		98EC99DC1977369000B6B33E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99DA1977369000B6B33E /* InfoPlist.strings */; };
 		98EC99DE1977369000B6B33E /* JAHConvertJingleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99DD1977369000B6B33E /* JAHConvertJingleTests.m */; };
 		98EC99E91977370600B6B33E /* JAHConvertJingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99E81977370600B6B33E /* JAHConvertJingle.m */; };
+		98EC99EC197824DC00B6B33E /* jingle.xml in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99EB197824DC00B6B33E /* jingle.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		98EC99DD1977369000B6B33E /* JAHConvertJingleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JAHConvertJingleTests.m; sourceTree = "<group>"; };
 		98EC99E71977370600B6B33E /* JAHConvertJingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHConvertJingle.h; sourceTree = "<group>"; };
 		98EC99E81977370600B6B33E /* JAHConvertJingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHConvertJingle.m; sourceTree = "<group>"; };
+		98EC99EB197824DC00B6B33E /* jingle.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = jingle.xml; path = data/jingle.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,10 +155,19 @@
 		98EC99D81977369000B6B33E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				98EC99EA197824B600B6B33E /* data */,
 				98EC99D91977369000B6B33E /* JAHConvertJingleTests-Info.plist */,
 				98EC99DA1977369000B6B33E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		98EC99EA197824B600B6B33E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				98EC99EB197824DC00B6B33E /* jingle.xml */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98EC99EC197824DC00B6B33E /* jingle.xml in Resources */,
 				98EC99DC1977369000B6B33E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +485,7 @@
 				98EC99E31977369000B6B33E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98EC99E41977369000B6B33E /* Build configuration list for PBXNativeTarget "JAHConvertJingleTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +494,7 @@
 				98EC99E61977369000B6B33E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
