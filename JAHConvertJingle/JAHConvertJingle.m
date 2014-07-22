@@ -46,6 +46,11 @@
 NSMutableDictionary* jingle(NSXMLElement* element) {
     NSMutableDictionary* jingleDictionary = [NSMutableDictionary dictionary];
 
+    NSXMLNode* action = [element attributeForName:@"action"];
+    if (action) {
+        jingleDictionary[[action name]] = [action stringValue];
+    }
+
     NSXMLNode* sid = [element attributeForName:@"sid"];
     if (sid) {
         jingleDictionary[[sid name]] = [sid stringValue];
