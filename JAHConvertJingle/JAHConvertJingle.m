@@ -16,7 +16,9 @@
             NSXMLElement* element = (NSXMLElement*)node;
             NSLog(@"Name: %@", [element name]);
 
-            NSValue* functionPointer = [[[self class] functionDictionary] objectForKey:[element name]];
+            NSXMLNode* namespace = [[element namespaces] firstObject];
+            NSString* key = [NSString stringWithFormat:@"%@|%@", [element name], [namespace stringValue]];
+            NSValue* functionPointer = [[[self class] functionDictionary] objectForKey:key];
             if (functionPointer) {
                 id (*function)(NSXMLElement*) = [functionPointer pointerValue];
                 return function(element);
@@ -36,7 +38,7 @@
 
         NSMutableDictionary* (*jinglePointer)(NSXMLElement*) = jingle;
         NSValue* jingleValue = [NSValue valueWithPointer:jinglePointer];
-        functionDictionary[@"jingle"] = jingleValue;
+        functionDictionary[@"jingle|urn:xmpp:jingle:1"] = jingleValue;
     });
     return functionDictionary;
 }
