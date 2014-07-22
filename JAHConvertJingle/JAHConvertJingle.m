@@ -26,8 +26,7 @@
         }
     }
 
-    return @"Placeholder";
-//    return nil;
+    return nil;
 }
 
 + (NSDictionary*)functionDictionary {
@@ -70,7 +69,10 @@ NSMutableDictionary* jingle(NSXMLElement* element) {
 
     NSMutableArray* children = [NSMutableArray array];
     for (NSXMLNode* node in [element children]) {
-        [children addObject:[JAHConvertJingle objectForElement:node]];
+        id object = [JAHConvertJingle objectForElement:node];
+        if (object) {
+            [children addObject:object];
+        }
     }
     if ([children count] > 0) {
         jingleDictionary[@"contents"] = children;
