@@ -16,8 +16,8 @@
             NSXMLElement* element = (NSXMLElement*)node;
             NSLog(@"Name: %@", [element name]);
 
-            NSXMLNode* namespace = [[element namespaces] firstObject];
-            NSString* key = [NSString stringWithFormat:@"%@|%@", [element name], [namespace stringValue]];
+            NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
+            NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
             NSValue* functionPointer = [[[self class] functionDictionary] objectForKey:key];
             if (functionPointer) {
                 id (*function)(NSXMLElement*) = [functionPointer pointerValue];
@@ -49,22 +49,22 @@ NSMutableDictionary* jingle(NSXMLElement* element) {
 
     NSXMLNode* action = [element attributeForName:@"action"];
     if (action) {
-        jingleDictionary[[action name]] = [action stringValue];
+        jingleDictionary[@"action"] = [action stringValue];
     }
 
     NSXMLNode* sid = [element attributeForName:@"sid"];
     if (sid) {
-        jingleDictionary[[sid name]] = [sid stringValue];
+        jingleDictionary[@"sid"] = [sid stringValue];
     }
 
     NSXMLNode* initiator = [element attributeForName:@"initiator"];
     if (initiator) {
-        jingleDictionary[[initiator name]] = [initiator stringValue];
+        jingleDictionary[@"initiator"] = [initiator stringValue];
     }
 
     NSXMLNode* responder = [element attributeForName:@"responder"];
     if (responder) {
-        jingleDictionary[[responder name]] = [responder stringValue];
+        jingleDictionary[@"responder"] = [responder stringValue];
     }
 
     NSMutableArray* children = [NSMutableArray array];
@@ -79,7 +79,7 @@ NSMutableDictionary* jingle(NSXMLElement* element) {
     }
 
     NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:jingleDictionary forKey:[element name]];
+    [dictionary setObject:jingleDictionary forKey:@"jingle"];
 
     return dictionary;
 }
