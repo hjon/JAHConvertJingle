@@ -10,4 +10,6 @@
 
 @interface JAHConvertJingle : NSObject
 
++ (id)objectForElement:(NSXMLNode*)parentElement;
+
 @end

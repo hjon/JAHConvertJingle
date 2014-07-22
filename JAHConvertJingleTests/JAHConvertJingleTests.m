@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "JAHConvertJingle.h"
 
 @interface JAHConvertJingleTests : XCTestCase
 
@@ -14,21 +15,28 @@
 
 @implementation JAHConvertJingleTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testJingleXMLToObjects {
+    NSBundle* testBundle = [NSBundle bundleForClass:[self class]];
+    NSURL* jingleURL = [testBundle URLForResource:@"jingle" withExtension:@"xml"];
+    NSXMLDocument* document = [[NSXMLDocument alloc] initWithContentsOfURL:jingleURL options:0 error:nil];
+
+    NSXMLElement* aNode = [document rootElement];
+    NSXMLElement* iqElement = [[aNode children] firstObject];
+
+    NSDictionary* dictionary = [JAHConvertJingle objectForElement:iqElement];
+
+    NSLog(@"Dictionary: %@", dictionary);
+    XCTAssertNotNil(dictionary, @"No dictionary could be made");
 }
 
 @end
