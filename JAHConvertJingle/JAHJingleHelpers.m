@@ -43,4 +43,27 @@ NSMutableDictionary* jingle(NSXMLElement* element) {
     return dictionary;
 }
 
+NSMutableDictionary* content(NSXMLElement* element) {
+    NSMutableDictionary* contentDictionary = [NSMutableDictionary dictionary];
+
+    contentDictionary[@"creator"] = attribute(element, @"creator", nil);
+    contentDictionary[@"disposition"] = attribute(element, @"disposition", @"session");
+    contentDictionary[@"name"] = attribute(element, @"name", nil);
+    contentDictionary[@"senders"] = attribute(element, @"senders", @"both");
+
+    NSXMLElement* description = [[element elementsForName:@"description"] firstObject];
+    id descriptionObject = [JAHConvertJingle objectForElement:description];
+    if (descriptionObject) {
+        contentDictionary[@"description"] = descriptionObject;
+    }
+
+    NSXMLElement* transport = [[element elementsForName:@"transport"] firstObject];
+    id transportObject = [JAHConvertJingle objectForElement:transport];
+    if (transportObject) {
+        contentDictionary[@"transport"] = transportObject;
+    }
+
+    return contentDictionary;
+}
+
 @end

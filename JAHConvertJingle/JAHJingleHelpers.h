@@ -11,5 +11,6 @@
 @interface JAHJingleHelpers : NSObject
 
 NSMutableDictionary* jingle(NSXMLElement* element);
+NSMutableDictionary* content(NSXMLElement* element);
 
 @end

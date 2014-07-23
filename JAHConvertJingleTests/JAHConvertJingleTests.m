@@ -36,6 +36,15 @@
     jingleMapping.functionValue = jingleValue;
     [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:jingleMapping];
 
+    JAHFunctionMapping* contentMapping = [[JAHFunctionMapping alloc] init];
+    contentMapping.name = @"content";
+    contentMapping.element = @"content";
+    contentMapping.namespace = @"urn:xmpp:jingle:1";
+    NSMutableDictionary* (*contentPointer)(NSXMLElement*) = content;
+    NSValue* contentValue = [NSValue valueWithPointer:contentPointer];
+    contentMapping.functionValue = contentValue;
+    [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:contentMapping];
+
     NSBundle* testBundle = [NSBundle bundleForClass:[self class]];
     NSURL* jingleURL = [testBundle URLForResource:@"jingle" withExtension:@"xml"];
     NSXMLDocument* document = [[NSXMLDocument alloc] initWithContentsOfURL:jingleURL options:0 error:nil];
