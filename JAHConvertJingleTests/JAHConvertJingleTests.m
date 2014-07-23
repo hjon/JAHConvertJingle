@@ -43,7 +43,7 @@
     NSXMLElement* aNode = [document rootElement];
     NSXMLElement* iqElement = [[aNode children] firstObject];
 
-    NSDictionary* dictionary = [JAHConvertJingle objectForElement:iqElement];
+    NSDictionary* dictionary = [JAHConvertJingle objectForElement:[[iqElement children] firstObject]];
 
     NSLog(@"Dictionary: %@", dictionary);
     XCTAssertNotNil(dictionary, @"No dictionary could be made");

@@ -10,16 +10,14 @@
 
 @implementation JAHConvertJingle
 
-+ (id)objectForElement:(NSXMLNode*)parentElement {
-    for (NSXMLNode* node in [parentElement children]) {
-        if ([node kind] == NSXMLElementKind) {
-            NSXMLElement* element = (NSXMLElement*)node;
-            NSLog(@"Name: %@", [element name]);
++ (id)objectForElement:(NSXMLNode*)node {
+    if ([node kind] == NSXMLElementKind) {
+        NSXMLElement* element = (NSXMLElement*)node;
+        NSLog(@"Name: %@", [element name]);
 
-            id (*function)(NSXMLElement*) = [[[self class] sharedFunctionMapper] functionToConvertElement:element];
-            if (function != NULL) {
-                return function(element);
-            }
+        id (*function)(NSXMLElement*) = [[[self class] sharedFunctionMapper] functionToConvertElement:element];
+        if (function != NULL) {
+            return function(element);
         }
     }
 
