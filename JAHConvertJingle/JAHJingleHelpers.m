@@ -11,28 +11,18 @@
 
 @implementation JAHJingleHelpers
 
+NSString* attribute(NSXMLElement* element, NSString* name) {
+    NSXMLNode* attribute = [element attributeForName:name];
+    return (attribute ? [attribute stringValue] : @"");
+}
+
 NSMutableDictionary* jingle(NSXMLElement* element) {
     NSMutableDictionary* jingleDictionary = [NSMutableDictionary dictionary];
 
-    NSXMLNode* action = [element attributeForName:@"action"];
-    if (action) {
-        jingleDictionary[@"action"] = [action stringValue];
-    }
-
-    NSXMLNode* sid = [element attributeForName:@"sid"];
-    if (sid) {
-        jingleDictionary[@"sid"] = [sid stringValue];
-    }
-
-    NSXMLNode* initiator = [element attributeForName:@"initiator"];
-    if (initiator) {
-        jingleDictionary[@"initiator"] = [initiator stringValue];
-    }
-
-    NSXMLNode* responder = [element attributeForName:@"responder"];
-    if (responder) {
-        jingleDictionary[@"responder"] = [responder stringValue];
-    }
+    jingleDictionary[@"action"] = attribute(element, @"action");
+    jingleDictionary[@"initiator"] = attribute(element, @"initiator");
+    jingleDictionary[@"responder"] = attribute(element, @"responder");
+    jingleDictionary[@"sid"] = attribute(element, @"sid");
 
     NSMutableArray* children = [NSMutableArray array];
     for (NSXMLNode* node in [element children]) {
