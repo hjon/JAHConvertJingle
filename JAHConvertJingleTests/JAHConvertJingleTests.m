@@ -18,15 +18,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testJingleXMLToObjects {
     JAHFunctionMapping* jingleMapping = [[JAHFunctionMapping alloc] init];
     jingleMapping.name = @"jingle";
     jingleMapping.element = @"jingle";
@@ -44,7 +36,14 @@
     NSValue* contentValue = [NSValue valueWithPointer:contentPointer];
     contentMapping.functionValue = contentValue;
     [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:contentMapping];
+}
 
+- (void)tearDown {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
+}
+
+- (void)testJingleXMLToObjects {
     NSBundle* testBundle = [NSBundle bundleForClass:[self class]];
     NSURL* jingleURL = [testBundle URLForResource:@"jingle" withExtension:@"xml"];
     NSXMLDocument* document = [[NSXMLDocument alloc] initWithContentsOfURL:jingleURL options:0 error:nil];
