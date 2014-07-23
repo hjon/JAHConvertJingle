@@ -16,11 +16,8 @@
             NSXMLElement* element = (NSXMLElement*)node;
             NSLog(@"Name: %@", [element name]);
 
-            NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
-            NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
-            NSValue* functionPointer = [[[self class] functionDictionary] objectForKey:key];
-            if (functionPointer) {
-                id (*function)(NSXMLElement*) = [functionPointer pointerValue];
+            id (*function)(NSXMLElement*) = [[[self class] sharedFunctionMapper] functionToConvertElement:element];
+            if (function != NULL) {
                 return function(element);
             }
         }
@@ -29,59 +26,45 @@
     return nil;
 }
 
-+ (NSDictionary*)functionDictionary {
-    static NSMutableDictionary* functionDictionary;
++ (JAHFunctionMapper*)sharedFunctionMapper {
+    static JAHFunctionMapper* functionMapper;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        functionDictionary = [NSMutableDictionary dictionary];
-
-        NSMutableDictionary* (*jinglePointer)(NSXMLElement*) = jingle;
-        NSValue* jingleValue = [NSValue valueWithPointer:jinglePointer];
-        functionDictionary[@"jingle|urn:xmpp:jingle:1"] = jingleValue;
+        functionMapper = [[JAHFunctionMapper alloc] init];
     });
-    return functionDictionary;
+    return functionMapper;
 }
 
-#pragma mark - Jingle Element Actions
+@end
 
-NSMutableDictionary* jingle(NSXMLElement* element) {
-    NSMutableDictionary* jingleDictionary = [NSMutableDictionary dictionary];
 
-    NSXMLNode* action = [element attributeForName:@"action"];
-    if (action) {
-        jingleDictionary[@"action"] = [action stringValue];
+@implementation JAHFunctionMapping
+@end
+
+
+@interface JAHFunctionMapper ()
+@property (nonatomic, strong) NSMutableDictionary* elementToFunction;
+@end
+
+@implementation JAHFunctionMapper
+
+- (void)registerFunctionMapping:(JAHFunctionMapping*)functionMapping {
+    NSString* key = [NSString stringWithFormat:@"%@|%@", functionMapping.element, functionMapping.namespace];
+    [self.elementToFunction setObject:functionMapping forKey:key];
+}
+
+- (void*)functionToConvertElement:(NSXMLElement*)element {
+    NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
+    NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
+    JAHFunctionMapping* mapping = self.elementToFunction[key];
+    return [mapping.functionValue pointerValue];
+}
+
+- (NSMutableDictionary*)elementToFunction {
+    if (!_elementToFunction) {
+        _elementToFunction = [NSMutableDictionary dictionary];
     }
-
-    NSXMLNode* sid = [element attributeForName:@"sid"];
-    if (sid) {
-        jingleDictionary[@"sid"] = [sid stringValue];
-    }
-
-    NSXMLNode* initiator = [element attributeForName:@"initiator"];
-    if (initiator) {
-        jingleDictionary[@"initiator"] = [initiator stringValue];
-    }
-
-    NSXMLNode* responder = [element attributeForName:@"responder"];
-    if (responder) {
-        jingleDictionary[@"responder"] = [responder stringValue];
-    }
-
-    NSMutableArray* children = [NSMutableArray array];
-    for (NSXMLNode* node in [element children]) {
-        id object = [JAHConvertJingle objectForElement:node];
-        if (object) {
-            [children addObject:object];
-        }
-    }
-    if ([children count] > 0) {
-        jingleDictionary[@"contents"] = children;
-    }
-
-    NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
-    [dictionary setObject:jingleDictionary forKey:@"jingle"];
-
-    return dictionary;
+    return _elementToFunction;
 }
 
 @end

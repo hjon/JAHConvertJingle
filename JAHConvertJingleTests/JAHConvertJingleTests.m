@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "JAHConvertJingle.h"
+#import "JAHJingleHelpers.h"
 
 @interface JAHConvertJingleTests : XCTestCase
 
@@ -26,6 +27,15 @@
 }
 
 - (void)testJingleXMLToObjects {
+    JAHFunctionMapping* jingleMapping = [[JAHFunctionMapping alloc] init];
+    jingleMapping.name = @"jingle";
+    jingleMapping.element = @"jingle";
+    jingleMapping.namespace = @"urn:xmpp:jingle:1";
+    NSMutableDictionary* (*jinglePointer)(NSXMLElement*) = jingle;
+    NSValue* jingleValue = [NSValue valueWithPointer:jinglePointer];
+    jingleMapping.functionValue = jingleValue;
+    [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:jingleMapping];
+
     NSBundle* testBundle = [NSBundle bundleForClass:[self class]];
     NSURL* jingleURL = [testBundle URLForResource:@"jingle" withExtension:@"xml"];
     NSXMLDocument* document = [[NSXMLDocument alloc] initWithContentsOfURL:jingleURL options:0 error:nil];
