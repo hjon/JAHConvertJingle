@@ -1,14 +1,14 @@
 //
-//  JAHConvertJingle+JAHJingleHelpers.m
+//  JAHConvertJingle+Jingle.m
 //  JAHConvertJingle
 //
 //  Created by Jon Hjelle on 7/23/14.
 //  Copyright (c) 2014 Jon Hjelle. All rights reserved.
 //
 
-#import "JAHConvertJingle+JAHJingleHelpers.h"
+#import "JAHConvertJingle+Jingle.h"
 
-@implementation JAHConvertJingle (JAHJingleHelpers)
+@implementation JAHConvertJingle (Jingle)
 
 + (void)load {
     [[self class] registerElementName:@"jingle" namespace:@"urn:xmpp:jingle:1" withBlock:^id(NSXMLElement *element) {

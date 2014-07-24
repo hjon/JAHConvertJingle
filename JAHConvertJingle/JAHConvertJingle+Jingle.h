@@ -1,5 +1,5 @@
 //
-//  JAHConvertJingle+JAHJingleHelpers.h
+//  JAHConvertJingle+Jingle.h
 //  JAHConvertJingle
 //
 //  Created by Jon Hjelle on 7/23/14.
@@ -8,6 +8,6 @@
 
 #import "JAHConvertJingle.h"
 
-@interface JAHConvertJingle (JAHJingleHelpers)
+@interface JAHConvertJingle (Jingle)
 
 @end

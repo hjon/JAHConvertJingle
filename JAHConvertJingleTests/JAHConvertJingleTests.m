@@ -8,7 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "JAHConvertJingle.h"
-#import "JAHConvertJingle+JAHJingleHelpers.h"
 
 @interface JAHConvertJingleTests : XCTestCase
 
