@@ -51,4 +51,16 @@
     return value;
 }
 
++ (NSArray*)childrenOfElement:(NSXMLElement*)element withName:(NSString*)name namespace:(NSString*)namespace {
+    NSMutableArray* children = [NSMutableArray array];
+    for (NSXMLNode* node in [element elementsForLocalName:name URI:namespace]) {
+        id object = [JAHConvertJingle objectForElement:node];
+        if (object) {
+            [children addObject:object];
+        }
+    }
+
+    return children;
+}
+
 @end
