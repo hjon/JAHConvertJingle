@@ -60,11 +60,5 @@
     }];
 }
 
-+ (NSString*)attributeForXMLElement:(NSXMLElement*)element withName:(NSString*)name defaultValue:(NSString*)defaultValue {
-    NSXMLNode* attribute = [element attributeForName:name];
-    NSString* value = attribute ? [attribute stringValue] : defaultValue;
-    value = value ? value : @"";
-    return value;
-}
 
 @end

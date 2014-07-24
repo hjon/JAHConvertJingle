@@ -17,4 +17,6 @@ typedef id (^XMLConversionBlock)(NSXMLElement* element);
 + (void)registerElementName:(NSString*)name namespace:(NSString*)namespace withBlock:(XMLConversionBlock)block;
 + (XMLConversionBlock)blockForElement:(NSXMLElement*)element;
 
++ (NSString*)attributeForXMLElement:(NSXMLElement*)element withName:(NSString*)name defaultValue:(NSString*)defaultValue;
+
 @end

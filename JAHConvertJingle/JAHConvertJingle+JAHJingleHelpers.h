@@ -10,6 +10,4 @@
 
 @interface JAHConvertJingle (JAHJingleHelpers)
 
-+ (NSString*)attributeForXMLElement:(NSXMLElement*)element withName:(NSString*)name defaultValue:(NSString*)defaultValue;
-
 @end
