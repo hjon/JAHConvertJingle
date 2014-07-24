@@ -44,18 +44,22 @@
         contentDictionary[@"name"] = [JAHConvertJingle attributeForXMLElement:element withName:@"name" defaultValue:nil];
         contentDictionary[@"senders"] = [JAHConvertJingle attributeForXMLElement:element withName:@"senders" defaultValue:@"both"];
 
-        NSXMLElement* description = [[element elementsForName:@"description"] firstObject];
-        id descriptionObject = [JAHConvertJingle objectForElement:description];
-        if (descriptionObject) {
-            contentDictionary[@"description"] = descriptionObject;
+        for (NSXMLNode* node in [element children]) {
+            if ([node kind] == NSXMLElementKind) {
+                if ([[node name] isEqualToString:@"description"]) {
+                    id descriptionObject = [JAHConvertJingle objectForElement:node];
+                    if (descriptionObject) {
+                        contentDictionary[@"description"] = descriptionObject;
+                    }
+                } else if ([[node name] isEqualToString:@"transport"]) {
+                    id transportObject = [JAHConvertJingle objectForElement:node];
+                    if (transportObject) {
+                        contentDictionary[@"transport"] = transportObject;
+                    }
+                }
+            }
         }
 
-        NSXMLElement* transport = [[element elementsForName:@"transport"] firstObject];
-        id transportObject = [JAHConvertJingle objectForElement:transport];
-        if (transportObject) {
-            contentDictionary[@"transport"] = transportObject;
-        }
-        
         return contentDictionary;
     }];
 }
