@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		981269C41981826D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269C31981826D00FB1A84 /* JAHConvertJingle+RTP.m */; };
-		98B3556C1980206300B19D18 /* JAHConvertJingle+Jingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3556B1980206300B19D18 /* JAHConvertJingle+Jingle.m */; };
+		981269CD19819E2D00FB1A84 /* JAHConvertJingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269C719819E2D00FB1A84 /* JAHConvertJingle.m */; };
+		981269CE19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */; };
+		981269CF19819E2D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */; };
 		98EC99B41977369000B6B33E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EC99B31977369000B6B33E /* Cocoa.framework */; };
 		98EC99BE1977369000B6B33E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99BC1977369000B6B33E /* InfoPlist.strings */; };
 		98EC99C01977369000B6B33E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99BF1977369000B6B33E /* main.m */; };
@@ -20,7 +21,6 @@
 		98EC99D41977369000B6B33E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EC99B31977369000B6B33E /* Cocoa.framework */; };
 		98EC99DC1977369000B6B33E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99DA1977369000B6B33E /* InfoPlist.strings */; };
 		98EC99DE1977369000B6B33E /* JAHConvertJingleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99DD1977369000B6B33E /* JAHConvertJingleTests.m */; };
-		98EC99E91977370600B6B33E /* JAHConvertJingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99E81977370600B6B33E /* JAHConvertJingle.m */; };
 		98EC99EC197824DC00B6B33E /* jingle.xml in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99EB197824DC00B6B33E /* jingle.xml */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		981269C21981826D00FB1A84 /* JAHConvertJingle+RTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+RTP.h"; sourceTree = "<group>"; };
-		981269C31981826D00FB1A84 /* JAHConvertJingle+RTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+RTP.m"; sourceTree = "<group>"; };
-		98B3556A1980206300B19D18 /* JAHConvertJingle+Jingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+Jingle.h"; sourceTree = "<group>"; };
-		98B3556B1980206300B19D18 /* JAHConvertJingle+Jingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+Jingle.m"; sourceTree = "<group>"; };
+		981269C619819E2D00FB1A84 /* JAHConvertJingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAHConvertJingle.h; path = JAHConvertJingle/JAHConvertJingle.h; sourceTree = "<group>"; };
+		981269C719819E2D00FB1A84 /* JAHConvertJingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAHConvertJingle.m; path = JAHConvertJingle/JAHConvertJingle.m; sourceTree = "<group>"; };
+		981269C919819E2D00FB1A84 /* JAHConvertJingle+Jingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+Jingle.h"; sourceTree = "<group>"; };
+		981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+Jingle.m"; sourceTree = "<group>"; };
+		981269CB19819E2D00FB1A84 /* JAHConvertJingle+RTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+RTP.h"; sourceTree = "<group>"; };
+		981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+RTP.m"; sourceTree = "<group>"; };
 		98EC99B01977369000B6B33E /* JAHConvertJingle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHConvertJingle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EC99B31977369000B6B33E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		98EC99B61977369000B6B33E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -58,8 +60,6 @@
 		98EC99D91977369000B6B33E /* JAHConvertJingleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JAHConvertJingleTests-Info.plist"; sourceTree = "<group>"; };
 		98EC99DB1977369000B6B33E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		98EC99DD1977369000B6B33E /* JAHConvertJingleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JAHConvertJingleTests.m; sourceTree = "<group>"; };
-		98EC99E71977370600B6B33E /* JAHConvertJingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHConvertJingle.h; sourceTree = "<group>"; };
-		98EC99E81977370600B6B33E /* JAHConvertJingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHConvertJingle.m; sourceTree = "<group>"; };
 		98EC99EB197824DC00B6B33E /* jingle.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = jingle.xml; path = data/jingle.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +84,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		981269C519819D6B00FB1A84 /* JAHConvertJingle */ = {
+			isa = PBXGroup;
+			children = (
+				981269C619819E2D00FB1A84 /* JAHConvertJingle.h */,
+				981269C719819E2D00FB1A84 /* JAHConvertJingle.m */,
+				981269C819819E2D00FB1A84 /* Stanzas */,
+			);
+			name = JAHConvertJingle;
+			sourceTree = "<group>";
+		};
+		981269C819819E2D00FB1A84 /* Stanzas */ = {
+			isa = PBXGroup;
+			children = (
+				981269C919819E2D00FB1A84 /* JAHConvertJingle+Jingle.h */,
+				981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */,
+				981269CB19819E2D00FB1A84 /* JAHConvertJingle+RTP.h */,
+				981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */,
+			);
+			name = Stanzas;
+			path = JAHConvertJingle/Stanzas;
+			sourceTree = "<group>";
+		};
 		98EC99A71977369000B6B33E = {
 			isa = PBXGroup;
 			children = (
@@ -126,16 +148,11 @@
 		98EC99B91977369000B6B33E /* JAHConvertJingle */ = {
 			isa = PBXGroup;
 			children = (
+				981269C519819D6B00FB1A84 /* JAHConvertJingle */,
 				98EC99C51977369000B6B33E /* JAHAppDelegate.h */,
 				98EC99C61977369000B6B33E /* JAHAppDelegate.m */,
 				98EC99C81977369000B6B33E /* MainMenu.xib */,
 				98EC99CB1977369000B6B33E /* Images.xcassets */,
-				98EC99E71977370600B6B33E /* JAHConvertJingle.h */,
-				98EC99E81977370600B6B33E /* JAHConvertJingle.m */,
-				98B3556A1980206300B19D18 /* JAHConvertJingle+Jingle.h */,
-				98B3556B1980206300B19D18 /* JAHConvertJingle+Jingle.m */,
-				981269C21981826D00FB1A84 /* JAHConvertJingle+RTP.h */,
-				981269C31981826D00FB1A84 /* JAHConvertJingle+RTP.m */,
 				98EC99BA1977369000B6B33E /* Supporting Files */,
 			);
 			path = JAHConvertJingle;
@@ -280,11 +297,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98B3556C1980206300B19D18 /* JAHConvertJingle+Jingle.m in Sources */,
 				98EC99C71977369000B6B33E /* JAHAppDelegate.m in Sources */,
-				981269C41981826D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */,
-				98EC99E91977370600B6B33E /* JAHConvertJingle.m in Sources */,
+				981269CE19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m in Sources */,
+				981269CD19819E2D00FB1A84 /* JAHConvertJingle.m in Sources */,
 				98EC99C01977369000B6B33E /* main.m in Sources */,
+				981269CF19819E2D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
