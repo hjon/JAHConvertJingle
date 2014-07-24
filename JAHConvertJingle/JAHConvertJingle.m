@@ -15,54 +15,33 @@
         NSXMLElement* element = (NSXMLElement*)node;
         NSLog(@"Name: %@", [element name]);
 
-        id (*function)(NSXMLElement*) = [[[self class] sharedFunctionMapper] functionToConvertElement:element];
-        if (function != NULL) {
-            return function(element);
+        XMLConversionBlock block = [[self class] blockForElement:element];
+        if (block) {
+            return block(element);
         }
     }
 
     return nil;
 }
 
-+ (JAHFunctionMapper*)sharedFunctionMapper {
-    static JAHFunctionMapper* functionMapper;
++ (NSMutableDictionary*)sharedConversionMap {
+    static NSMutableDictionary* conversionMap;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        functionMapper = [[JAHFunctionMapper alloc] init];
+        conversionMap = [NSMutableDictionary dictionary];
     });
-    return functionMapper;
+    return conversionMap;
 }
 
-@end
-
-
-@implementation JAHFunctionMapping
-@end
-
-
-@interface JAHFunctionMapper ()
-@property (nonatomic, strong) NSMutableDictionary* elementToFunction;
-@end
-
-@implementation JAHFunctionMapper
-
-- (void)registerFunctionMapping:(JAHFunctionMapping*)functionMapping {
-    NSString* key = [NSString stringWithFormat:@"%@|%@", functionMapping.element, functionMapping.namespace];
-    [self.elementToFunction setObject:functionMapping forKey:key];
++ (void)registerElementName:(NSString*)name namespace:(NSString*)namespace withBlock:(XMLConversionBlock)block {
+    NSString* key = [NSString stringWithFormat:@"%@|%@", name, namespace];
+    [[[self class] sharedConversionMap] setObject:block forKey:key];
 }
 
-- (void*)functionToConvertElement:(NSXMLElement*)element {
++ (XMLConversionBlock)blockForElement:(NSXMLElement*)element {
     NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
     NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
-    JAHFunctionMapping* mapping = self.elementToFunction[key];
-    return [mapping.functionValue pointerValue];
-}
-
-- (NSMutableDictionary*)elementToFunction {
-    if (!_elementToFunction) {
-        _elementToFunction = [NSMutableDictionary dictionary];
-    }
-    return _elementToFunction;
+    return [[[self class] sharedConversionMap] objectForKey:key];
 }
 
 @end

@@ -18,24 +18,7 @@
 
 - (void)setUp {
     [super setUp];
-
-    JAHFunctionMapping* jingleMapping = [[JAHFunctionMapping alloc] init];
-    jingleMapping.name = @"jingle";
-    jingleMapping.element = @"jingle";
-    jingleMapping.namespace = @"urn:xmpp:jingle:1";
-    NSMutableDictionary* (*jinglePointer)(NSXMLElement*) = jingle;
-    NSValue* jingleValue = [NSValue valueWithPointer:jinglePointer];
-    jingleMapping.functionValue = jingleValue;
-    [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:jingleMapping];
-
-    JAHFunctionMapping* contentMapping = [[JAHFunctionMapping alloc] init];
-    contentMapping.name = @"content";
-    contentMapping.element = @"content";
-    contentMapping.namespace = @"urn:xmpp:jingle:1";
-    NSMutableDictionary* (*contentPointer)(NSXMLElement*) = content;
-    NSValue* contentValue = [NSValue valueWithPointer:contentPointer];
-    contentMapping.functionValue = contentValue;
-    [[JAHConvertJingle sharedFunctionMapper] registerFunctionMapping:contentMapping];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {

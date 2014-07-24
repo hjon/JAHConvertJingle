@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JAHConvertJingle.h"
 
-@interface JAHJingleHelpers : NSObject
-
-NSMutableDictionary* jingle(NSXMLElement* element);
-NSMutableDictionary* content(NSXMLElement* element);
+@interface JAHConvertJingle (JAHJingleHelpers)
 
 @end
