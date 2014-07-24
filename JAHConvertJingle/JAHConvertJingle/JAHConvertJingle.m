@@ -15,7 +15,7 @@
         NSXMLElement* element = (NSXMLElement*)node;
         NSLog(@"Name: %@", [element name]);
 
-        XMLConversionBlock block = [[self class] blockForElement:element];
+        XMLToObjectBlock block = [[self class] blockForElement:element];
         if (block) {
             return block(element);
         }
@@ -38,14 +38,14 @@
     [[[self class] sharedConversionMap] setObject:dictionary forKey:key];
 }
 
-+ (XMLConversionBlock)blockForElement:(NSXMLElement*)element {
++ (XMLToObjectBlock)blockForElement:(NSXMLElement*)element {
     NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
     NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
     NSDictionary* dictionary = [[[self class] sharedConversionMap] objectForKey:key];
     return dictionary[@"toObject"];
 }
 
-+ (CocoaConversionBlock)blockForName:(NSString*)name namespace:(NSString*)namespace {
++ (ObjectToXMLBlock)blockForName:(NSString*)name namespace:(NSString*)namespace {
     NSString* key = [NSString stringWithFormat:@"%@|%@", name, namespace];
     NSDictionary* dictionary = [[[self class] sharedConversionMap] objectForKey:key];
     return dictionary[@"toElement"];

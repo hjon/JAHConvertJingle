@@ -11,7 +11,7 @@
 @implementation JAHConvertJingle (Jingle)
 
 + (void)load {
-    XMLConversionBlock jingle = ^id(NSXMLElement *element) {
+    XMLToObjectBlock jingleToObject = ^id(NSXMLElement *element) {
         NSMutableDictionary* jingleDictionary = [NSMutableDictionary dictionary];
 
         jingleDictionary[@"action"] = [JAHConvertJingle attributeForXMLElement:element withName:@"action" defaultValue:nil];
@@ -26,9 +26,9 @@
 
         return dictionary;
     };
-    [[self class] registerElementName:@"jingle" namespace:@"urn:xmpp:jingle:1" withDictionary:@{@"toObject": jingle}];
+    [[self class] registerElementName:@"jingle" namespace:@"urn:xmpp:jingle:1" withDictionary:@{@"toObject": jingleToObject}];
 
-    XMLConversionBlock content = ^id(NSXMLElement *element) {
+    XMLToObjectBlock contentToObject = ^id(NSXMLElement *element) {
         NSMutableDictionary* contentDictionary = [NSMutableDictionary dictionary];
 
         contentDictionary[@"creator"] = [JAHConvertJingle attributeForXMLElement:element withName:@"creator" defaultValue:nil];
@@ -54,7 +54,7 @@
 
         return contentDictionary;
     };
-    [[self class] registerElementName:@"content" namespace:@"urn:xmpp:jingle:1" withDictionary:@{@"toObject": content}];
+    [[self class] registerElementName:@"content" namespace:@"urn:xmpp:jingle:1" withDictionary:@{@"toObject": contentToObject}];
 }
 
 

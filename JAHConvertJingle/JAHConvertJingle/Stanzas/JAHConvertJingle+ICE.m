@@ -11,7 +11,7 @@
 @implementation JAHConvertJingle (ICE)
 
 + (void)load {
-    XMLConversionBlock transport = ^id(NSXMLElement *element) {
+    XMLToObjectBlock transportToObject = ^id(NSXMLElement *element) {
         NSMutableDictionary* iceDictionary = [NSMutableDictionary dictionary];
 
         iceDictionary[@"transType"] = @"iceUdp";
@@ -24,9 +24,9 @@
 
         return iceDictionary;
     };
-    [[self class] registerElementName:@"transport" namespace:@"urn:xmpp:jingle:transports:ice-udp:1" withDictionary:@{@"toObject": transport}];
+    [[self class] registerElementName:@"transport" namespace:@"urn:xmpp:jingle:transports:ice-udp:1" withDictionary:@{@"toObject": transportToObject}];
 
-    XMLConversionBlock candidate = ^id(NSXMLElement *element) {
+    XMLToObjectBlock candidateToObject = ^id(NSXMLElement *element) {
         NSMutableDictionary* candidateDictionary = [NSMutableDictionary dictionary];
 
         candidateDictionary[@"component"] = [JAHConvertJingle attributeForXMLElement:element withName:@"component" defaultValue:nil];
@@ -44,9 +44,9 @@
 
         return candidateDictionary;
     };
-    [[self class] registerElementName:@"candidate" namespace:@"urn:xmpp:jingle:transports:ice-udp:1" withDictionary:@{@"toObject": candidate}];
+    [[self class] registerElementName:@"candidate" namespace:@"urn:xmpp:jingle:transports:ice-udp:1" withDictionary:@{@"toObject": candidateToObject}];
 
-    XMLConversionBlock fingerprint = ^id(NSXMLElement  *element) {
+    XMLToObjectBlock fingerprintToObject = ^id(NSXMLElement  *element) {
         NSMutableDictionary* fingerprintDictionary = [NSMutableDictionary dictionary];
 
         fingerprintDictionary[@"hash"] = [JAHConvertJingle attributeForXMLElement:element withName:@"hash" defaultValue:nil];
@@ -55,9 +55,9 @@
 
         return fingerprintDictionary;
     };
-    [[self class] registerElementName:@"fingerprint" namespace:@"urn:xmpp:jingle:apps:dtls:0" withDictionary:@{@"toObject": fingerprint}];
+    [[self class] registerElementName:@"fingerprint" namespace:@"urn:xmpp:jingle:apps:dtls:0" withDictionary:@{@"toObject": fingerprintToObject}];
 
-    XMLConversionBlock sctp = ^id(NSXMLElement *element) {
+    XMLToObjectBlock sctpToObject = ^id(NSXMLElement *element) {
         NSMutableDictionary* sctpDictionary = [NSMutableDictionary dictionary];
 
         sctpDictionary[@"number"] = [JAHConvertJingle attributeForXMLElement:element withName:@"number" defaultValue:nil];
@@ -66,7 +66,7 @@
 
         return sctpDictionary;
     };
-    [[self class] registerElementName:@"sctpmap" namespace:@"urn:xmpp:jingle:transports:dtls-sctp:1" withDictionary:@{@"toObject": sctp}];
+    [[self class] registerElementName:@"sctpmap" namespace:@"urn:xmpp:jingle:transports:dtls-sctp:1" withDictionary:@{@"toObject": sctpToObject}];
 }
 
 @end
