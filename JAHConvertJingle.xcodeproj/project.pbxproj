@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981269C41981826D00FB1A84 /* JAHConvertJingle+JAHRTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269C31981826D00FB1A84 /* JAHConvertJingle+JAHRTP.m */; };
 		98B3556C1980206300B19D18 /* JAHJingleHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B3556B1980206300B19D18 /* JAHJingleHelpers.m */; };
 		98EC99B41977369000B6B33E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EC99B31977369000B6B33E /* Cocoa.framework */; };
 		98EC99BE1977369000B6B33E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99BC1977369000B6B33E /* InfoPlist.strings */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		981269C21981826D00FB1A84 /* JAHConvertJingle+JAHRTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+JAHRTP.h"; sourceTree = "<group>"; };
+		981269C31981826D00FB1A84 /* JAHConvertJingle+JAHRTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+JAHRTP.m"; sourceTree = "<group>"; };
 		98B3556A1980206300B19D18 /* JAHJingleHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHJingleHelpers.h; sourceTree = "<group>"; };
 		98B3556B1980206300B19D18 /* JAHJingleHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHJingleHelpers.m; sourceTree = "<group>"; };
 		98EC99B01977369000B6B33E /* JAHConvertJingle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHConvertJingle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +130,12 @@
 				98EC99C61977369000B6B33E /* JAHAppDelegate.m */,
 				98EC99C81977369000B6B33E /* MainMenu.xib */,
 				98EC99CB1977369000B6B33E /* Images.xcassets */,
+				98EC99E71977370600B6B33E /* JAHConvertJingle.h */,
+				98EC99E81977370600B6B33E /* JAHConvertJingle.m */,
+				98B3556A1980206300B19D18 /* JAHJingleHelpers.h */,
+				98B3556B1980206300B19D18 /* JAHJingleHelpers.m */,
+				981269C21981826D00FB1A84 /* JAHConvertJingle+JAHRTP.h */,
+				981269C31981826D00FB1A84 /* JAHConvertJingle+JAHRTP.m */,
 				98EC99BA1977369000B6B33E /* Supporting Files */,
 			);
 			path = JAHConvertJingle;
@@ -140,10 +149,6 @@
 				98EC99BF1977369000B6B33E /* main.m */,
 				98EC99C11977369000B6B33E /* JAHConvertJingle-Prefix.pch */,
 				98EC99C21977369000B6B33E /* Credits.rtf */,
-				98EC99E71977370600B6B33E /* JAHConvertJingle.h */,
-				98EC99E81977370600B6B33E /* JAHConvertJingle.m */,
-				98B3556A1980206300B19D18 /* JAHJingleHelpers.h */,
-				98B3556B1980206300B19D18 /* JAHJingleHelpers.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			files = (
 				98B3556C1980206300B19D18 /* JAHJingleHelpers.m in Sources */,
 				98EC99C71977369000B6B33E /* JAHAppDelegate.m in Sources */,
+				981269C41981826D00FB1A84 /* JAHConvertJingle+JAHRTP.m in Sources */,
 				98EC99E91977370600B6B33E /* JAHConvertJingle.m in Sources */,
 				98EC99C01977369000B6B33E /* main.m in Sources */,
 			);
