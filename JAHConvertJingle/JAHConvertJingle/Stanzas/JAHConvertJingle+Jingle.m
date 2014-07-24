@@ -19,10 +19,7 @@
         jingleDictionary[@"responder"] = [JAHConvertJingle attributeForXMLElement:element withName:@"responder" defaultValue:nil];
         jingleDictionary[@"sid"] = [JAHConvertJingle attributeForXMLElement:element withName:@"sid" defaultValue:nil];
 
-        NSArray* children = [JAHConvertJingle childrenOfElement:element withName:@"content" namespace:@"urn:xmpp:jingle:1"];
-        if ([children count] > 0) {
-            jingleDictionary[@"contents"] = children;
-        }
+        jingleDictionary[@"contents"] = [JAHConvertJingle childrenOfElement:element withName:@"content" namespace:@"urn:xmpp:jingle:1"];
 
         NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
         [dictionary setObject:jingleDictionary forKey:@"jingle"];
