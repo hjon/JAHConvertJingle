@@ -10,6 +10,7 @@
 		981269CD19819E2D00FB1A84 /* JAHConvertJingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269C719819E2D00FB1A84 /* JAHConvertJingle.m */; };
 		981269CE19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */; };
 		981269CF19819E2D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */; };
+		98D52D9A19819EBE004E67A2 /* JAHConvertJingle+ICE.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D52D9919819EBE004E67A2 /* JAHConvertJingle+ICE.m */; };
 		98EC99B41977369000B6B33E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EC99B31977369000B6B33E /* Cocoa.framework */; };
 		98EC99BE1977369000B6B33E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 98EC99BC1977369000B6B33E /* InfoPlist.strings */; };
 		98EC99C01977369000B6B33E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98EC99BF1977369000B6B33E /* main.m */; };
@@ -41,6 +42,8 @@
 		981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+Jingle.m"; sourceTree = "<group>"; };
 		981269CB19819E2D00FB1A84 /* JAHConvertJingle+RTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+RTP.h"; sourceTree = "<group>"; };
 		981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+RTP.m"; sourceTree = "<group>"; };
+		98D52D9819819EBE004E67A2 /* JAHConvertJingle+ICE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JAHConvertJingle+ICE.h"; sourceTree = "<group>"; };
+		98D52D9919819EBE004E67A2 /* JAHConvertJingle+ICE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JAHConvertJingle+ICE.m"; sourceTree = "<group>"; };
 		98EC99B01977369000B6B33E /* JAHConvertJingle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAHConvertJingle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EC99B31977369000B6B33E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		98EC99B61977369000B6B33E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,8 @@
 				981269CA19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m */,
 				981269CB19819E2D00FB1A84 /* JAHConvertJingle+RTP.h */,
 				981269CC19819E2D00FB1A84 /* JAHConvertJingle+RTP.m */,
+				98D52D9819819EBE004E67A2 /* JAHConvertJingle+ICE.h */,
+				98D52D9919819EBE004E67A2 /* JAHConvertJingle+ICE.m */,
 			);
 			name = Stanzas;
 			path = JAHConvertJingle/Stanzas;
@@ -301,6 +306,7 @@
 				981269CE19819E2D00FB1A84 /* JAHConvertJingle+Jingle.m in Sources */,
 				981269CD19819E2D00FB1A84 /* JAHConvertJingle.m in Sources */,
 				98EC99C01977369000B6B33E /* main.m in Sources */,
+				98D52D9A19819EBE004E67A2 /* JAHConvertJingle+ICE.m in Sources */,
 				981269CF19819E2D00FB1A84 /* JAHConvertJingle+RTP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
