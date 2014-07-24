@@ -33,15 +33,22 @@
     return conversionMap;
 }
 
-+ (void)registerElementName:(NSString*)name namespace:(NSString*)namespace withBlock:(XMLConversionBlock)block {
++ (void)registerElementName:(NSString*)name namespace:(NSString*)namespace withDictionary:(NSDictionary*)dictionary {
     NSString* key = [NSString stringWithFormat:@"%@|%@", name, namespace];
-    [[[self class] sharedConversionMap] setObject:block forKey:key];
+    [[[self class] sharedConversionMap] setObject:dictionary forKey:key];
 }
 
 + (XMLConversionBlock)blockForElement:(NSXMLElement*)element {
     NSXMLNode* namespace = [element resolveNamespaceForName:[element name]];
     NSString* key = [NSString stringWithFormat:@"%@|%@", [element localName], [namespace stringValue]];
-    return [[[self class] sharedConversionMap] objectForKey:key];
+    NSDictionary* dictionary = [[[self class] sharedConversionMap] objectForKey:key];
+    return dictionary[@"toObject"];
+}
+
++ (CocoaConversionBlock)blockForName:(NSString*)name namespace:(NSString*)namespace {
+    NSString* key = [NSString stringWithFormat:@"%@|%@", name, namespace];
+    NSDictionary* dictionary = [[[self class] sharedConversionMap] objectForKey:key];
+    return dictionary[@"toElement"];
 }
 
 + (NSString*)attributeForXMLElement:(NSXMLElement*)element withName:(NSString*)name defaultValue:(NSString*)defaultValue {
