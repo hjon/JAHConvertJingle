@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <XMPPFramework/DDXML.h>
 
 typedef id (^XMLToObjectBlock)(NSXMLElement* element);
 typedef id (^ObjectToXMLBlock)(id);
