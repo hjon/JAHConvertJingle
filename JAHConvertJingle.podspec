@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "JAHConvertJingle"
   s.version      = "0.0.1"
-  s.summary      = ""
+  s.summary      = "Conversion from Jingle XML to Cocoa objects and back"
 
   s.description  = <<-DESC
                    A longer description of JAHConvertJingle in Markdown format.
@@ -39,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -53,10 +53,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
   
-  s.author             = { "Jon Hjelle" => "email@address.com" }
+  s.author             = "Jon Hjelle"
   # Or just: s.author    = "Jon Hjelle"
   # s.authors            = { "Jon Hjelle" => "email@address.com" }
-  # s.social_media_url   = "http://twitter.com/Jon Hjelle"
+  # s.social_media_url   = "http://twitter.com/hjon"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -68,8 +68,8 @@ Pod::Spec.new do |s|
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
-  # s.osx.deployment_target = "10.7"
+  s.ios.deployment_target = "7.0"
+  s.osx.deployment_target = "10.9"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/hjon/JAHConvertJingle.git", :commit => "9a01797d405212c4f7fbd80af360dc0156c337ea" }
+  s.source       = { :git => "https://github.com/hjon/JAHConvertJingle.git", :commit => "ebeeba25d58ee78dcccfa0ffb177f45da002d337" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  s.source_files  = "JAHConvertJingle/JAHConvertJingle/*.{h,m}", "JAHConvertJingle/JAHConvertJingle/Stanzas/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -128,9 +128,9 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  s.dependency "XMPPFramework", "3.6.4"
 
 end
